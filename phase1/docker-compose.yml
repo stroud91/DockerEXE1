@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    image: my_flask_app
+    environment:
+      - FLASK_ENV=development
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:4.0.11-alpine
